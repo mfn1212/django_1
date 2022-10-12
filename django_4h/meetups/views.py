@@ -3,4 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index (request) :
-    return HttpResponse('here is index page') 
+    context = {
+
+    }
+    return render(request,"meetups/index.html",context=context) 
+
