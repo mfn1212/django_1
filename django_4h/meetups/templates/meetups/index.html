@@ -14,7 +14,11 @@
 <body>
     <h1> meetups </h1>
     {% if show_meetups and meetups.0.grade > 3 %}
-    <h2>{{meetups.0.title }}</h2>
+    {% for meetup in meetups %}
+    <h2>{{meetup.title }}</h2>
+    {% endfor %}
+    {% else %}
+    <h2>no meetup found</h2>
     {% endif %}
 </body>
 
