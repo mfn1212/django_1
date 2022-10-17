@@ -8,23 +8,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehran</title>
-    <!-- <link rel="stylesheet" href="{% static 'meetups/base.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'meetups/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/css/all_meetup.css' %}">
 </head>
 
 <body>
-    <header>
-        <nav>
+    <header id="main-header">
+        <nav id="main-logo">
             <a href="{% url 'home-page' %}">Django Meetups</a>
         </nav>
+        <h1>we got great meetups coming up !</h1>
+        <p>find the one that best suit your needs !</p>
     </header>
-    <h1> meetups </h1>
-    {% if show_meetups and meetups.0.grade > 3 %}
-    {% for meetup in meetups %}
-    <h2>{{meetup.title }}</h2>
-    {% endfor %}
-    {% else %}
-    <h2>no meetup found</h2>
-    {% endif %}
-</body>
+    <main>
+        <section>
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for meetup in meetups %}
+                <li class="meetup-item">
+                    <article>
+                        <div class="meetup-summery">
+                            <div class="meetup-image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ meetup.title }}</h3>
+                                <address>{{ meetup.address }}</address>
+                                <div></div>
+                            </div> 
+                        </div>
+                        <div class="meetup-action">
+                            <a class="btn" href="">More Details</a>
+
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
+    </body>
 
 </html>
