@@ -1,19 +1,10 @@
-{% load static %}
+{% extends "meetups/main.html" %}
+{% block title %}
+<title>Mehran</title>
+{% endblock %}
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehran</title>
-    <link rel="stylesheet" href="{% static 'meetups/css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'meetups/css/all_meetup.css' %}">
-</head>
-
-<body>
-    <header id="main-header">
+<header id="main-header">
         <nav id="main-logo">
             <a href="{% url 'home-page' %}">Django Meetups</a>
         </nav>
@@ -47,6 +38,4 @@
             </ol>
         </section>
     </main>
-    </body>
-
-</html>
+{% endblock %}
