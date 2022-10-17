@@ -8,11 +8,13 @@ def index(request):
     meetups = [
         {
             "title": "first meetup",
-            "grade": 12,
+            "address": "Paris",
+            "slug": "a-first-meetup",
         },
         {
             "title": "second meetup",
-            "grade": 4,
+            "address": "New York",
+            "slug": "a-secend-meetup",
         },
     ]
     context = {
