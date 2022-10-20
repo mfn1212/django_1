@@ -1,23 +1,13 @@
 from this import d
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Meetup
 
 # Create your views here.
 
 
 def index(request):
-    meetups = [
-        {
-            "title": "first meetup",
-            "address": "Paris",
-            "slug": "a-first-meetup",
-        },
-        {
-            "title": "second meetup",
-            "address": "New York",
-            "slug": "a-secend-meetup",
-        },
-    ]
+    meetups = Meetup.objects.all()
     context = {
         "meetups": meetups,
         "show_meetups":  True,
