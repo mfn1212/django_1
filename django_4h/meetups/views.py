@@ -17,13 +17,24 @@ def index(request):
 
 def meetup_details(request, meetup_slug):
 
-    meetup = {
-        "title": "first meetup",
-        "address": "Paris",
-        "slug": "a-first-meetup",
-    }
+    try:
+        selected_meetup = Meetup.objects.get(slug = meetup_slug)
+        meetup_found = True     
+        context = {
+            'title': selected_meetup.title,
+            'desciption': selected_meetup.desciption,
+            'meetup_found':meetup_found
+        }
+        
+    except Exception as exp :
+        meetup_found = False     
+        context = {
+            'meetup_found':meetup_found
+        }
+    return render(request, "meetups/meetup_details.html", context=context)
     context = {
-        'meetup': meetup,
-        'slug': meetup_slug,
+        'title': selected_meetup.title,
+        'desciption': selected_meetup.desciption,
+        'meetup_found':meetup_found
     }
     return render(request, "meetups/meetup_details.html", context=context)
