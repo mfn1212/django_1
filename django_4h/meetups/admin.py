@@ -3,5 +3,5 @@ from  .models import Meetup
 # Register your models here.
 class MeetupAdmin (admin.ModelAdmin) :
     list_display = ['title','slug','desciption']
-
+    list_filter = ["title"]
 admin.site.register(Meetup,MeetupAdmin)
