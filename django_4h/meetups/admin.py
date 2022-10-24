@@ -3,7 +3,7 @@ from  .models import Meetup,Location
 # Register your models here.
 class MeetupAdmin (admin.ModelAdmin) :
     list_display = ['title','slug','desciption']
-    list_filter = ["title"]
+    list_filter = ["address"]
     prepopulated_fields= {
         'slug' : ['title']
     }
